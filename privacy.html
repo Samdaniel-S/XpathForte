@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — XPath Forte</title>
+  <meta name="description" content="XPath Forte does not collect or transmit any personal data. Everything runs inside your browser; the only thing it saves is your own settings.">
+  <meta name="theme-color" content="#111111">
+  <link rel="canonical" href="https://samdaniel-s.github.io/XpathForte/privacy.html">
+  <link rel="icon" type="image/png" href="icons/icon128.png">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="bar">
+    <a class="brand" href="index.html" aria-label="XPath Forte, home">
+      <img src="icons/icon48.png" width="28" height="28" alt="">
+      <span>XPath Forte</span>
+    </a>
+    <nav class="bar__nav" aria-label="Primary">
+      <a href="index.html#try">Try it</a>
+      <a href="index.html#panel">The panel</a>
+      <a href="index.html#benchmark">Benchmark</a>
+      <a href="index.html#questions">Questions</a>
+    </nav>
+  </header>
+
+  <main id="main" class="doc">
+    <h1 class="doc__title">Privacy Policy</h1>
+    <div class="doc__body">
+      <p class="doc__updated">Last updated October 2026</p>
+
+      <h2>Data collection</h2>
+      <p>XPath Forte does <strong>not</strong> collect or transmit any personal data. The extension operates entirely within your browser, and nothing is sent to us or to any server.</p>
+
+      <h2>How it works</h2>
+      <p>When you activate the extension, it reads the page you are on to generate XPath, CSS selectors, and Playwright locators. Verifying and fixing locators (Heal tab) and listing the page’s elements (Scan tab) also happen entirely in your browser. Locators you paste into Heal, and Scan results, are held in memory only while the panel is open; they are never saved or sent anywhere.</p>
+      <p>The extension writes to your clipboard only when you press a Copy button, and it creates a file only when you choose to export Scan results; that file is saved to your own computer.</p>
+
+      <h2>What is stored</h2>
+      <p>Only your XPath Forte settings: the panel theme, the “Copy as” language, the test-id attributes and quote style you prefer, and the attributes or classes you ask it to ignore. They are kept in Chrome’s extension storage. If you have Chrome sync turned on, Chrome syncs them between your own browsers through your Google account, as it does for other extension settings. XPath Forte never receives them.</p>
+      <p>No page content, URLs, browsing history, or locators are stored. Versions before 2.8 kept the dark-mode choice in the visited website’s own local storage; 2.8 moved it to extension storage and removes that old entry when it runs on a page.</p>
+
+      <h2>Permissions</h2>
+      <p><strong>activeTab and scripting:</strong> run the inspector on the tab you are using, only after you click the extension icon, press the keyboard shortcut, or use the right-click menu. It works with iframes and Shadow DOM elements on that page.</p>
+      <p><strong>contextMenus:</strong> adds the “XPath Forte: Get Locators” item to the right-click menu.</p>
+      <p><strong>alarms:</strong> a periodic timer that tidies up the extension’s own state when an inspection is left open.</p>
+      <p><strong>storage:</strong> saves your settings, as described above.</p>
+      <p><strong>Access to all sites (optional, off by default):</strong> requested only if you turn on “Allow cross-origin frames” in Settings, and only so the inspector can also run inside embedded frames from other domains on the page you are inspecting. Chrome asks you to confirm, and you can revoke it in Settings or on the browser’s extensions page at any time.</p>
+      <p>The extension does not read other tabs, your browsing history, cookies, or passwords.</p>
+
+      <h2>Third-party services</h2>
+      <p>XPath Forte does not use any third-party analytics, tracking, or advertising services.</p>
+
+      <h2>Contact</h2>
+      <p>If you have questions about this privacy policy, write to <a class="link" href="mailto:mailtosamdaniel@gmail.com">mailtosamdaniel@gmail.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <p class="foot__what">XPath Forte, by Sam Daniel in Chennai</p>
+    <p class="foot__links">
+      <a href="https://chromewebstore.google.com/detail/xpath-forte-by-sam/aapnajplekoonekkimnljfhcilllgedc" target="_blank" rel="noopener">Chrome Web Store</a>
+      <a href="mailto:mailtosamdaniel@gmail.com">Email</a>
+    </p>
+    <p class="foot__legal">&copy; 2026 · <a href="privacy.html" aria-current="page">Privacy</a></p>
+  </footer>
+</body>
+</html>

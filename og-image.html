@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200">
+  <title>OG Image — XPath Forte</title>
+  <!-- Source for og-image.png (1200×630). Render it with headless Chrome at 1200×630. -->
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><!-- taste-skill-ignore: code face for the locator only -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1200px; height: 630px; overflow: hidden; position: relative;
+      background: #111111; color: #f2f2f2;
+      font-family: 'Switzer', system-ui, sans-serif;
+    }
+    .brand { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; }
+    .brand img { width: 34px; height: 34px; }
+    h1 { position: absolute; left: 64px; top: 172px; font-size: 82px; font-weight: 600; letter-spacing: -0.045em; line-height: 0.95; }
+    .lead { position: absolute; left: 64px; top: 372px; width: 470px; font-size: 25px; line-height: 1.35; color: #f2f2f2; }
+    .free { position: absolute; left: 64px; bottom: 56px; font-size: 22px; color: #a3a3a3; }
+    .stage {
+      position: absolute; left: 676px; right: 0; top: 150px; bottom: 0; background: #1e90ff;
+      clip-path: polygon(0 96px, 170px 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .best {
+      position: absolute; left: 726px; top: 250px; width: 440px;
+      padding: 18px 20px; border-radius: 10px; background: #eaf6ed; color: #137333;
+      border: 2px solid #34a853; /* taste-skill-ignore: the panel's own banner (data-ui) */
+    }
+    .best__label { font-size: 20px; font-weight: 700; margin-bottom: 12px; display: flex; gap: 8px; align-items: center; }
+    .best__label svg { color: #f9ab00; }
+    .best code {
+      display: block; padding: 12px 14px; border-radius: 6px; background: #fff; color: #1a3d1f;
+      font-family: 'JetBrains Mono', monospace; font-size: 20px; line-height: 1.45; /* taste-skill-ignore: a locator is code */
+    }
+    .meta { display: flex; gap: 14px; align-items: center; margin-top: 14px; font-size: 19px; font-weight: 600; }
+    .pill { padding: 3px 12px; border-radius: 14px; background: #d3ecd9; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #34a853; display: inline-block; margin-right: 6px; }
+    .type { padding: 3px 10px; border-radius: 4px; background: #e8f0fe; color: #1a5fc8; }
+  </style>
+</head>
+<body>
+  <div class="brand"><img src="icons/icon128.png" alt="">XPath Forte</div>
+  <h1>Locators that<br>survive deploys</h1>
+  <p class="lead">XPath, CSS and Playwright locators, each scored 0–100, with the best one picked.</p>
+  <p class="free">Free on the Chrome Web Store</p>
+  <div class="stage" aria-hidden="true"></div>
+  <div class="best" data-ui>
+    <p class="best__label"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>Best Locator</p>
+    <code>//input[@name='email']</code>
+    <div class="meta"><span class="pill">1 match</span><span><span class="dot"></span>Stable</span><span class="type">XPath</span></div>
+  </div>
+</body>
+</html>

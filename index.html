@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XPath Forte — XPath, CSS &amp; Playwright locators that survive deploys</title>
+  <meta name="description" content="A free Chrome extension for test automation. Click any element for XPath, CSS and Playwright locators, each scored 0–100 for stability, with the best one picked. Heal and Scan tabs, Shadow DOM and iframes.">
+  <meta name="keywords" content="XPath, CSS selector, Playwright locator, Selenium, test automation, locator, Chrome extension, Shadow DOM, iframe">
+  <meta name="author" content="Sam Daniel">
+  <meta name="google-site-verification" content="AvSgihi4KkhzDq-DyFsaNR0B7VQ4g1ZvSABtdEFABJU" />
+  <meta name="theme-color" content="#111111">
+  <link rel="canonical" href="https://samdaniel-s.github.io/XpathForte/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="XPath Forte — locators that survive deploys">
+  <meta property="og:description" content="Click any element for XPath, CSS and Playwright locators, each scored 0–100 for stability, with the best one picked. Free Chrome extension.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://samdaniel-s.github.io/XpathForte/">
+  <meta property="og:image" content="https://samdaniel-s.github.io/XpathForte/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="XPath Forte — locators that survive deploys">
+  <meta name="twitter:description" content="XPath, CSS and Playwright locators scored 0–100 for stability, best one first. Free Chrome extension.">
+  <meta name="twitter:image" content="https://samdaniel-s.github.io/XpathForte/og-image.png">
+
+  <link rel="icon" type="image/png" href="icons/icon128.png">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><!-- taste-skill-ignore: code face for literal locators only -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="bar" id="bar">
+    <a class="brand" href="#top" aria-label="XPath Forte, back to top">
+      <img src="icons/icon48.png" width="28" height="28" alt="">
+      <span>XPath Forte</span>
+    </a>
+    <nav class="bar__nav" aria-label="Primary">
+      <a href="#try">Try it</a>
+      <a href="#panel">The panel</a>
+      <a href="#benchmark">Benchmark</a>
+      <a href="#questions">Questions</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__text">
+        <h1 class="hero__title lines" id="hero-title">
+          <span class="line"><span data-line style="--i:0">Locators that</span></span>
+          <span class="line"><span data-line style="--i:1">survive deploys</span></span>
+        </h1>
+        <p class="hero__lead" data-load style="--d:420ms">XPath Forte is a free Chrome extension. Click any element to get its XPath, CSS and Playwright locators, scored 0–100, best first.</p>
+        <div class="hero__actions" data-load style="--d:500ms">
+          <a class="btn btn--accent" href="https://chromewebstore.google.com/detail/xpath-forte-by-sam/aapnajplekoonekkimnljfhcilllgedc" target="_blank" rel="noopener">Add to Chrome</a>
+          <a class="link" href="#try">Try it on this page</a>
+        </div>
+      </div>
+
+      <div class="hero__stage" aria-hidden="false">
+        <div class="hero__shutter">
+          <div class="hero__drift">
+            <figure class="hero__shot" aria-label="The XPath Forte panel open on a sign-up form, with the Create account button picked">
+              <!-- A cropped piece of a page being inspected -->
+              <div class="page" data-ui>
+                <div class="page__card">
+                  <p class="page__h">Start your free trial</p>
+                  <p class="page__label">Work email</p>
+                  <p class="page__input">you@company.com</p>
+                  <p class="page__label">Company</p>
+                  <p class="page__input page__input--empty">&nbsp;</p>
+                  <p class="page__btn"><span>Create account</span><span class="hl" aria-hidden="true"></span></p>
+                </div>
+              </div>
+              <!-- The panel, docked over the page -->
+              <div class="xf xf--float" data-ui>
+                <div class="xf-head">
+                  <span class="xf-title"><img src="icons/icon48.png" width="18" height="18" alt="">XPath Forte</span>
+                  <code class="xf-tag">&lt;button&gt;</code>
+                  <span class="xf-nav" aria-hidden="true"><span>&uarr;</span><span>&larr;</span><span>&rarr;</span><span>&darr;</span></span>
+                  <span class="xf-x" aria-hidden="true">&times;</span>
+                </div>
+                <div class="xf-tabs" aria-hidden="true"><span class="is-on">XPath</span><span>CSS</span><span>Playwright</span><span>Heal</span><span>Scan</span></div>
+                <div class="xf-body">
+                  <div class="xf-best">
+                    <p class="xf-best__label"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>Best Locator</p>
+                    <code class="xf-best__value">//button[normalize-space(.)='Create account']</code>
+                    <div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 92/100"><span class="xf-dot"></span>Stable</span><span class="xf-type">XPath</span><span class="xf-copy">Copy</span></div>
+                  </div>
+                  <p class="xf-sec">Recommended</p>
+                  <div class="xf-item"><code>//button[normalize-space(.)='Create account']</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 92/100"><span class="xf-dot"></span>Stable</span></div></div>
+                  <p class="xf-sec">Attribute based</p>
+                  <div class="xf-item"><code>//button[@type='submit']</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 70/100"><span class="xf-dot"></span>Stable</span></div></div>
+                  <div class="xf-item"><code>//*[contains(@type, 'submit')]</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 70/100"><span class="xf-dot"></span>Stable</span></div></div>
+                  <p class="xf-sec">Context-aware</p>
+                  <div class="xf-item"><code>//main//button[normalize-space(.)='Create account']</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-mid" title="Stability: 65/100"><span class="xf-dot"></span>Moderate</span></div></div>
+                  <div class="xf-item"><code>//button[contains(concat(" ", normalize-space(@class), " "), ' btn ') and normalize-space(.)='Create account']</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-mid" title="Stability: 65/100"><span class="xf-dot"></span>Moderate</span></div></div>
+                </div>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Try it: input half, output half ============ -->
+    <section class="try" id="try" aria-labelledby="try-title">
+      <h2 class="try__title" id="try-title">
+        <span class="try__title-a" data-slide="left">Ship a new build.</span>
+        <span class="try__title-b" data-slide="right">See what holds.</span>
+      </h2>
+
+      <div class="try__in">
+        <div class="try__in-inner">
+          <p class="try__intro" data-reveal>This form runs the real XPath Forte engine in your browser. Edit its markup, or ship a build the way your framework does: new generated ids, reshuffled classes, an extra wrapper.</p>
+          <label class="sr-only" for="try-src">Markup of the form</label>
+          <textarea class="try__src" id="try-src" spellcheck="false" autocapitalize="off" autocomplete="off" rows="14" data-reveal style="--d:80ms"></textarea>
+          <div class="try__controls" data-reveal style="--d:160ms">
+            <button class="btn btn--light" type="button" id="try-ship">Ship a build</button>
+            <button class="link link--button" type="button" id="try-reset">Start over</button>
+          </div>
+          <p class="try__log" id="try-log" aria-live="polite">Build 1. Click any part of the form.</p>
+        </div>
+      </div>
+
+      <div class="try__out">
+        <div class="try__out-inner">
+          <figure class="try__page" data-reveal>
+            <iframe id="try-frame" title="Specimen page: a sign-up form you can inspect" tabindex="0"></iframe>
+            <span class="try__hl try__hl--hover" aria-hidden="true"></span>
+            <span class="try__hl try__hl--pick" aria-hidden="true"></span>
+            <span class="try__hl-tests" aria-hidden="true"></span>
+            <noscript><p class="try__noscript">The live demo needs JavaScript. Everything else on this page works without it.</p></noscript>
+          </figure>
+
+          <div class="xf xf--live" data-ui id="live" data-reveal style="--d:120ms">
+            <div class="xf-head">
+              <span class="xf-title"><img src="icons/icon48.png" width="18" height="18" alt="">XPath Forte</span>
+              <code class="xf-tag" id="live-tag">&lt;button&gt;</code>
+              <span class="xf-nav">
+                <button type="button" data-nav="parent" aria-label="Pick the parent element">&uarr;</button>
+                <button type="button" data-nav="prev" aria-label="Pick the previous sibling">&larr;</button>
+                <button type="button" data-nav="next" aria-label="Pick the next sibling">&rarr;</button>
+                <button type="button" data-nav="child" aria-label="Pick the first child">&darr;</button>
+              </span>
+            </div>
+            <div class="xf-tabs" role="tablist" aria-label="Locator types">
+              <button role="tab" type="button" id="lt-xpath" aria-controls="lp-xpath" aria-selected="true" data-tab="xpath">XPath</button>
+              <button role="tab" type="button" id="lt-css" aria-controls="lp-css" aria-selected="false" tabindex="-1" data-tab="css">CSS</button>
+              <button role="tab" type="button" id="lt-playwright" aria-controls="lp-playwright" aria-selected="false" tabindex="-1" data-tab="playwright">Playwright</button>
+              <button role="tab" type="button" id="lt-heal" aria-controls="lp-heal" aria-selected="false" tabindex="-1" data-tab="heal">Heal</button>
+              <button role="tab" type="button" id="lt-scan" aria-controls="lp-scan" aria-selected="false" tabindex="-1" data-tab="scan">Scan</button>
+            </div>
+            <form class="xf-test" id="live-test" autocomplete="off">
+              <label class="sr-only" for="live-test-input">Test a locator against the form</label>
+              <input id="live-test-input" type="text" spellcheck="false" placeholder="Test XPath, CSS, or Playwright locator…">
+              <button type="submit">Test</button>
+              <p class="xf-test__result" id="live-test-result" aria-live="polite" hidden></p>
+            </form>
+            <div class="xf-body">
+              <div role="tabpanel" id="lp-xpath" aria-labelledby="lt-xpath" data-panel="xpath"></div>
+              <div role="tabpanel" id="lp-css" aria-labelledby="lt-css" data-panel="css" hidden></div>
+              <div role="tabpanel" id="lp-playwright" aria-labelledby="lt-playwright" data-panel="playwright" hidden></div>
+              <div role="tabpanel" id="lp-heal" aria-labelledby="lt-heal" data-panel="heal" hidden>
+                <label class="xf-note" for="live-heal">Paste selectors, one per line. XPath, CSS or Playwright.</label>
+                <textarea class="xf-heal__input" id="live-heal" rows="4" spellcheck="false"></textarea>
+                <button class="xf-heal__go" type="button" id="live-heal-go">Verify All</button>
+                <ul class="xf-heal__rows" id="live-heal-rows" aria-live="polite"></ul>
+              </div>
+              <div role="tabpanel" id="lp-scan" aria-labelledby="lt-scan" data-panel="scan" hidden>
+                <div class="xf-scan__bar"><span id="live-scan-count">0 elements</span><button type="button" class="xf-copy" id="live-scan-copy">Copy All</button></div>
+                <ul class="xf-scan__rows" id="live-scan-rows"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ The panel, part by part ============ -->
+    <section class="plate" id="panel" aria-labelledby="plate-title">
+      <h2 class="plate__title" id="plate-title" data-lines>The panel, part by part</h2>
+
+      <div class="plate__stage">
+        <ul class="plate__notes plate__notes--l">
+          <li class="note" data-target="nav" data-reveal style="--d:0ms">
+            <button type="button" class="note__btn"><span class="note__name">Walk the tree</span>
+            <span class="note__text">Step to the parent, a sibling or a child with the arrows. No need to pick again.</span></button>
+          </li>
+          <li class="note" data-target="test" data-reveal style="--d:70ms">
+            <button type="button" class="note__btn"><span class="note__name">Test anything</span>
+            <span class="note__text">Paste any XPath, CSS or Playwright locator. Its matches light up on the page and scroll into view.</span></button>
+          </li>
+          <li class="note" data-target="match" data-reveal style="--d:140ms">
+            <button type="button" class="note__btn"><span class="note__name">Match count</span>
+            <span class="note__text">Counted live against the page: green for one match, amber for several, red for none.</span></button>
+          </li>
+        </ul>
+
+        <div class="plate__panel">
+          <div class="xf xf--plate" data-ui id="plate-panel" data-reveal style="--d:60ms">
+            <div class="xf-head" data-part="nav-row">
+              <span class="xf-title"><img src="icons/icon48.png" width="18" height="18" alt="">XPath Forte</span>
+              <code class="xf-tag">&lt;input&gt;</code>
+              <span class="xf-nav" data-part="nav" aria-hidden="true"><span>&uarr;</span><span>&larr;</span><span>&rarr;</span><span>&darr;</span></span>
+              <span class="xf-x" aria-hidden="true">&times;</span>
+            </div>
+            <div class="xf-tabs" role="tablist" aria-label="Locator types" data-part="tabs">
+              <button role="tab" type="button" id="pt-xpath" aria-controls="pp-xpath" aria-selected="true" data-tab="xpath">XPath</button>
+              <button role="tab" type="button" id="pt-css" aria-controls="pp-css" aria-selected="false" tabindex="-1" data-tab="css">CSS</button>
+              <button role="tab" type="button" id="pt-playwright" aria-controls="pp-playwright" aria-selected="false" tabindex="-1" data-tab="playwright">Playwright</button>
+              <button role="tab" type="button" id="pt-heal" aria-controls="pp-heal" aria-selected="false" tabindex="-1" data-tab="heal">Heal</button>
+              <button role="tab" type="button" id="pt-scan" aria-controls="pp-scan" aria-selected="false" tabindex="-1" data-tab="scan">Scan</button>
+            </div>
+            <div class="xf-test" data-part="test">
+              <code class="xf-test__value">//input[@name='email']</code>
+              <span class="xf-test__btn">Test</span>
+              <p class="xf-test__result is-ok">1 match</p>
+            </div>
+            <div class="xf-body">
+              <div role="tabpanel" id="pp-xpath" aria-labelledby="pt-xpath" data-panel="xpath">
+                <div class="xf-best" data-part="best">
+                  <p class="xf-best__label"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>Best Locator</p>
+                  <code class="xf-best__value">//input[@id='email']</code>
+                  <div class="xf-meta"><span class="xf-match is-one" data-part="match">1 match</span><span class="xf-stab is-high" title="Stability: 90/100"><span class="xf-dot"></span>Stable</span><span class="xf-type">XPath</span><button type="button" class="xf-copy" data-copy="//input[@id='email']">Copy</button></div>
+                </div>
+                <p class="xf-sec">Recommended</p>
+                <div class="xf-item"><code>//*[@id='email']</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 92/100"><span class="xf-dot"></span>Stable</span></div></div>
+                <div class="xf-item"><code>//input[@id='email']</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 90/100"><span class="xf-dot"></span>Stable</span></div></div>
+                <p class="xf-sec">Attribute based</p>
+                <div class="xf-item"><code>//input[@id='email' and @name='email']</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 85/100" data-part="stab"><span class="xf-dot"></span>Stable</span></div></div>
+                <div class="xf-item"><code>//input[@name='email']</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 75/100"><span class="xf-dot"></span>Stable</span></div></div>
+                <p class="xf-sec">Context-aware</p>
+                <div class="xf-item"><code>//main//input[@name='email']</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 75/100"><span class="xf-dot"></span>Stable</span></div></div>
+              </div>
+              <div role="tabpanel" id="pp-css" aria-labelledby="pt-css" data-panel="css" hidden>
+                <div class="xf-best">
+                  <p class="xf-best__label"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>Best Locator</p>
+                  <code class="xf-best__value">//input[@id='email']</code>
+                  <div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 90/100"><span class="xf-dot"></span>Stable</span><span class="xf-type">XPath</span><button type="button" class="xf-copy" data-copy="//input[@id='email']">Copy</button></div>
+                </div>
+                <p class="xf-sec">ID based</p>
+                <div class="xf-item"><code>#email</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 90/100"><span class="xf-dot"></span>Stable</span></div></div>
+                <div class="xf-item"><code>input#email</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 90/100"><span class="xf-dot"></span>Stable</span></div></div>
+                <p class="xf-sec">Attribute based</p>
+                <div class="xf-item"><code>input[type="email"][name="email"]</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 75/100"><span class="xf-dot"></span>Stable</span></div></div>
+                <div class="xf-item"><code>input[placeholder="you@company.com"]</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 72/100"><span class="xf-dot"></span>Stable</span></div></div>
+                <p class="xf-sec">Context-aware</p>
+                <div class="xf-item"><code>section.signup &gt; input:first-of-type</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-mid" title="Stability: 50/100"><span class="xf-dot"></span>Moderate</span></div></div>
+              </div>
+              <div role="tabpanel" id="pp-playwright" aria-labelledby="pt-playwright" data-panel="playwright" hidden>
+                <div class="xf-best">
+                  <p class="xf-best__label"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>Best Locator</p>
+                  <code class="xf-best__value">//input[@id='email']</code>
+                  <div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 90/100"><span class="xf-dot"></span>Stable</span><span class="xf-type">XPath</span><button type="button" class="xf-copy" data-copy="//input[@id='email']">Copy</button></div>
+                </div>
+                <p class="xf-sec">Role based</p>
+                <div class="xf-item"><code>getByRole('textbox', { name: 'Work email', exact: true })</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 90/100"><span class="xf-dot"></span>Stable</span></div></div>
+                <p class="xf-sec">Label</p>
+                <div class="xf-item"><code>getByLabel('Work email', { exact: true })</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 88/100"><span class="xf-dot"></span>Stable</span></div></div>
+                <p class="xf-sec">Attribute based</p>
+                <div class="xf-item"><code>getByPlaceholder('you@company.com')</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 75/100"><span class="xf-dot"></span>Stable</span></div></div>
+              </div>
+              <div role="tabpanel" id="pp-heal" aria-labelledby="pt-heal" data-panel="heal" hidden>
+                <p class="xf-note">Paste selectors, one per line. XPath, CSS or Playwright.</p>
+                <code class="xf-heal__pasted">//input[@id='email']
+#signup .btn-primary
+//button[@id='j_idt12:submit']
+getByLabel('Work email')</code>
+                <span class="xf-heal__go">Verify All</span>
+                <ul class="xf-heal__rows">
+                  <li><code>//input[@id='email']</code><span class="xf-match is-one">Unique</span></li>
+                  <li><code>#signup .btn-primary</code><span class="xf-match is-many">2 matches</span></li>
+                  <li><code>//button[@id='j_idt12:submit']</code><span class="xf-match is-none">No match</span></li>
+                  <li><code>getByLabel('Work email')</code><span class="xf-match is-one">Unique</span></li>
+                </ul>
+              </div>
+              <div role="tabpanel" id="pp-scan" aria-labelledby="pt-scan" data-panel="scan" hidden>
+                <div class="xf-scan__bar"><span>3 elements</span><span class="xf-copy">Copy All</span><span class="xf-copy">Download</span></div>
+                <ul class="xf-scan__rows">
+                  <li><span class="xf-scan__tag">input</span><code>//input[@id='email']</code></li>
+                  <li><span class="xf-scan__tag">input</span><code>//input[@name='company']</code></li>
+                  <li><span class="xf-scan__tag">button</span><code>//button[normalize-space(.)='Create account']</code></li>
+                </ul>
+              </div>
+            </div>
+            <div class="xf-foot"><img src="icons/icon48.png" width="16" height="16" alt=""><strong>XPath Forte</strong><span>by Sam</span></div>
+          </div>
+          <span class="plate__ring" aria-hidden="true"></span>
+        </div>
+
+        <ul class="plate__notes plate__notes--r">
+          <li class="note" data-target="tabs" data-reveal style="--d:35ms">
+            <button type="button" class="note__btn"><span class="note__name">Five tabs</span>
+            <span class="note__text">XPath, CSS and Playwright for the element you picked. Heal and Scan for the whole page.</span></button>
+          </li>
+          <li class="note" data-target="best" data-reveal style="--d:105ms">
+            <button type="button" class="note__btn"><span class="note__name">Best Locator</span>
+            <span class="note__text">The strongest unique pick across all three types. It turns amber when nothing on the page is unique.</span></button>
+          </li>
+          <li class="note" data-target="stab" data-reveal style="--d:175ms">
+            <button type="button" class="note__btn"><span class="note__name">Stability</span>
+            <span class="note__text">Scored 0 to 100 from what the locator is built on. Test ids and stable ids score high; positions and deep paths score low.</span></button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ How it works: pinned fragment, changing state ============ -->
+    <section class="how" id="how" aria-labelledby="how-title">
+      <div class="how__steps">
+        <h2 class="how__title" id="how-title">How it works</h2>
+        <ol class="how__list">
+          <li class="step is-on" data-step="0">
+            <p class="step__say">Click the icon, then&nbsp;point.</p>
+            <p class="step__more">Whatever is under the cursor lights up, including elements inside iframes and open Shadow DOM.</p>
+          </li>
+          <li class="step" data-step="1">
+            <p class="step__say">Press Space for hover&nbsp;menus.</p>
+            <p class="step__more">A click picks the element. Space or Enter picks it without moving the mouse, so the menu stays open.</p>
+          </li>
+          <li class="step" data-step="2">
+            <p class="step__say">Copy the one on&nbsp;top.</p>
+            <p class="step__more">Copying keeps the panel open and drops the locator into the test box, so you can check it on the spot.</p>
+          </li>
+          <li class="step" data-step="3">
+            <p class="step__say">After a deploy, check them&nbsp;all.</p>
+            <p class="step__more">Paste your suite’s selectors into Heal, or the page object itself, and verify them in one go. Broken ones get a suggested fix. Scan lists every control on the page with its best locator.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="how__stage">
+        <div class="how__board">
+          <!-- State 0: pointing -->
+          <div class="state is-on" data-state="0">
+            <div class="site" data-ui>
+              <div class="site__bar"><span class="site__logo">acme</span><span>Docs</span><span class="site__hot">Pricing<span class="hl" aria-hidden="true"></span></span><span>Account</span></div>
+              <p class="site__h">Plans for every team</p>
+              <div class="site__row"><span class="site__tile">Starter</span><span class="site__tile">Team</span><span class="site__tile">Scale</span></div>
+            </div>
+            <svg class="cursor" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2l16 9.5-7 1.6L9.6 20z" fill="#111" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <!-- State 1: hover menu picked with Space -->
+          <div class="state" data-state="1">
+            <div class="site" data-ui>
+              <div class="site__bar"><span class="site__logo">acme</span><span>Docs</span><span>Pricing</span><span class="site__open">Account</span></div>
+              <ul class="site__menu">
+                <li>Settings</li>
+                <li>Billing</li>
+                <li class="site__hot">Sign out<span class="hl" aria-hidden="true"></span></li>
+              </ul>
+            </div>
+            <kbd class="key">Space</kbd>
+          </div>
+          <!-- State 2: Best Locator copied -->
+          <div class="state" data-state="2">
+            <div class="xf xf--crop" data-ui>
+              <div class="xf-head">
+                <span class="xf-title"><img src="icons/icon48.png" width="18" height="18" alt="">XPath Forte</span>
+                <code class="xf-tag">&lt;a&gt;</code>
+              </div>
+              <div class="xf-test">
+                <code class="xf-test__value">//a[normalize-space(.)='Sign out']</code>
+                <span class="xf-test__btn">Test</span>
+                <p class="xf-test__result is-ok">1 match</p>
+              </div>
+              <div class="xf-body">
+                <div class="xf-best">
+                  <p class="xf-best__label"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>Best Locator</p>
+                  <code class="xf-best__value">//a[normalize-space(.)='Sign out']</code>
+                  <div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 92/100"><span class="xf-dot"></span>Stable</span><span class="xf-type">XPath</span><span class="xf-copy is-done">Copied</span></div>
+                </div>
+                <p class="xf-sec">Accessibility</p>
+                <div class="xf-item"><code>getByRole('link', { name: 'Sign out', exact: true })</code><div class="xf-meta"><span class="xf-match is-one">1 match</span><span class="xf-stab is-high" title="Stability: 90/100"><span class="xf-dot"></span>Stable</span></div></div>
+              </div>
+            </div>
+          </div>
+          <!-- State 3: Heal after a deploy -->
+          <div class="state" data-state="3">
+            <div class="xf xf--crop" data-ui>
+              <div class="xf-head">
+                <span class="xf-title"><img src="icons/icon48.png" width="18" height="18" alt="">XPath Forte</span>
+              </div>
+              <div class="xf-tabs" aria-hidden="true"><span>XPath</span><span>CSS</span><span>Playwright</span><span class="is-on">Heal</span><span>Scan</span></div>
+              <div class="xf-body">
+                <span class="xf-heal__go">Verify All</span>
+                <ul class="xf-heal__rows">
+                  <li><code>//a[normalize-space(.)='Sign out']</code><span class="xf-match is-one">Unique</span></li>
+                  <li><code>getByRole('button', { name: 'Create account' })</code><span class="xf-match is-one">Unique</span></li>
+                  <li><code>#nav .menu-item</code><span class="xf-match is-many">3 matches</span></li>
+                  <li><code>//button[@id='j_idt88:submit']</code><span class="xf-match is-none">No match</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="how__count" aria-hidden="true"><span id="how-now">1</span> of 4</p>
+      </div>
+    </section>
+
+    <!-- ============ Benchmark: tabs + banded rows ============ -->
+    <section class="bench" id="benchmark" aria-labelledby="bench-title">
+      <div class="bench__top">
+        <h2 class="bench__title" id="bench-title">
+          <span class="bench__soft">13 hard targets.</span>
+          <span>12 verified unique.</span>
+        </h2>
+        <a class="btn btn--light" href="https://chromewebstore.google.com/detail/xpath-forte-by-sam/aapnajplekoonekkimnljfhcilllgedc" target="_blank" rel="noopener">Add to Chrome</a>
+      </div>
+      <p class="bench__lead" data-reveal>The scorecard runs the generator functions the panel uses against markup built to trip locator tools. Each row is the locator it recommends and the score it gives. The thirteenth target sits in Shadow DOM, where no runner can push an XPath through, so it recommends a Playwright locator instead.</p>
+
+      <div class="bench__body">
+        <div class="bench__tabs" role="tablist" aria-label="Kinds of target" aria-orientation="vertical">
+          <button role="tab" type="button" id="bt-gen" aria-controls="bp-gen" aria-selected="true"><span class="bench__tab-name">Generated ids</span><span class="bench__tab-n">3 targets</span></button>
+          <button role="tab" type="button" id="bt-none" aria-controls="bp-none" aria-selected="false" tabindex="-1"><span class="bench__tab-name">Nothing to hold</span><span class="bench__tab-n">4 targets</span></button>
+          <button role="tab" type="button" id="bt-names" aria-controls="bp-names" aria-selected="false" tabindex="-1"><span class="bench__tab-name">Names only</span><span class="bench__tab-n">3 targets</span></button>
+          <button role="tab" type="button" id="bt-clean" aria-controls="bp-clean" aria-selected="false" tabindex="-1"><span class="bench__tab-name">Clean hooks</span><span class="bench__tab-n">3 targets</span></button>
+        </div>
+
+        <div class="bench__panels">
+          <ul class="bands" role="tabpanel" id="bp-gen" aria-labelledby="bt-gen">
+            <li class="band"><span class="band__score">92</span><span class="band__what"><span class="band__title">Its only id is a JSF artifact, <code>j_idt88:email</code></span><code class="band__loc">//input[@name='email']</code></span><span class="band__verdict">Stable, 1&nbsp;match</span></li>
+            <li class="band"><span class="band__score">92</span><span class="band__what"><span class="band__title">Angular <code>_ngcontent</code> attributes and no id</span><code class="band__loc">//button[normalize-space(.)='Save changes']</code></span><span class="band__verdict">Stable, 1&nbsp;match</span></li>
+            <li class="band"><span class="band__score">92</span><span class="band__what"><span class="band__title">Eight utility classes that reorder every build</span><code class="band__loc">//button[normalize-space(.)='Subscribe now']</code></span><span class="band__verdict">Stable, 1&nbsp;match</span></li>
+          </ul>
+          <ul class="bands" role="tabpanel" id="bp-none" aria-labelledby="bt-none" hidden>
+            <li class="band"><span class="band__score">40</span><span class="band__what"><span class="band__title">One of three identical Edit buttons</span><code class="band__loc">//h3[normalize-space(text())='Invoice B']/following-sibling::button[1]</code></span><span class="band__verdict">Fragile, 1&nbsp;match</span></li>
+            <li class="band"><span class="band__score">50</span><span class="band__what"><span class="band__title">A list item with no id, class or text</span><code class="band__loc">ul.dots &gt; li:last-of-type</code></span><span class="band__verdict">Moderate, 1&nbsp;match</span></li>
+            <li class="band"><span class="band__score">92</span><span class="band__what"><span class="band__title">One cell in a status table</span><code class="band__loc">//table[@id='report']//td[normalize-space(.)='Paused']</code></span><span class="band__verdict">Stable, 1&nbsp;match</span></li>
+            <li class="band"><span class="band__score">90</span><span class="band__what"><span class="band__title">A bare input named only by its label</span><code class="band__loc">//input[@id='ship-addr']</code></span><span class="band__verdict">Stable, 1&nbsp;match</span></li>
+          </ul>
+          <ul class="bands" role="tabpanel" id="bp-names" aria-labelledby="bt-names" hidden>
+            <li class="band"><span class="band__score">90</span><span class="band__what"><span class="band__title">An icon-only button with an aria-label</span><code class="band__loc">getByRole('button', { name: 'Close dialog', exact: true })</code></span><span class="band__verdict">Stable, 1&nbsp;match</span></li>
+            <li class="band"><span class="band__score">92</span><span class="band__what"><span class="band__title">A div with role="button" and no native hooks</span><code class="band__loc">//div[normalize-space(.)='Toggle sidebar']</code></span><span class="band__verdict">Stable, 1&nbsp;match</span></li>
+            <li class="band"><span class="band__score">60</span><span class="band__what"><span class="band__title">Link text with both kinds of quote and an order number</span><code class="band__loc">//a[normalize-space(.)='Order #12345 — "Rush"']</code></span><span class="band__verdict">Moderate, 1&nbsp;match</span></li>
+          </ul>
+          <ul class="bands" role="tabpanel" id="bp-clean" aria-labelledby="bt-clean" hidden>
+            <li class="band"><span class="band__score">90</span><span class="band__what"><span class="band__title">A clean, human-written id</span><code class="band__loc">//button[@id='checkout-submit']</code></span><span class="band__verdict">Stable, 1&nbsp;match</span></li>
+            <li class="band"><span class="band__score">95</span><span class="band__what"><span class="band__title">A plain div with a data-testid</span><code class="band__loc">//div[@data-testid='user-card']</code></span><span class="band__verdict">Stable, 1&nbsp;match</span></li>
+            <li class="band"><span class="band__score">95</span><span class="band__what"><span class="band__title">A button inside an open Shadow DOM</span><code class="band__loc">getByTestId('buy')</code></span><span class="band__verdict">Stable, 1&nbsp;match</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="bench__fits"><span class="bench__fits-lead">Paste them into</span>
+        <span>Selenium</span><span>Playwright</span><span>WebdriverIO</span><span>Cypress</span><span>Puppeteer</span><span>Robot Framework</span>
+      </p>
+    </section>
+
+    <!-- ============ Questions ============ -->
+    <section class="faq" id="questions" aria-labelledby="faq-title">
+      <div class="faq__list">
+        <h2 class="faq__title" id="faq-title">Questions</h2>
+        <div class="qa is-on">
+          <h3 class="qa__q"><button type="button" aria-expanded="true" aria-controls="qa-1" id="qq-1">Is it free?</button></h3>
+          <div class="qa__a" id="qa-1" role="region" aria-labelledby="qq-1"><p>Yes. It’s free on the Chrome Web Store, with no account to create.</p></div>
+        </div>
+        <div class="qa">
+          <h3 class="qa__q"><button type="button" aria-expanded="false" aria-controls="qa-2" id="qq-2">Does anything leave my browser?</button></h3>
+          <div class="qa__a" id="qa-2" role="region" aria-labelledby="qq-2"><p>No. Locators are generated inside the tab you’re inspecting. There are no analytics, no tracking and no account.</p></div>
+        </div>
+        <div class="qa">
+          <h3 class="qa__q"><button type="button" aria-expanded="false" aria-controls="qa-3" id="qq-3">Which permissions does it ask for?</button></h3>
+          <div class="qa__a" id="qa-3" role="region" aria-labelledby="qq-3"><p>activeTab, scripting, contextMenus and alarms. There are no host permissions, so it only touches a page after you click the icon or the menu item.</p></div>
+        </div>
+        <div class="qa">
+          <h3 class="qa__q"><button type="button" aria-expanded="false" aria-controls="qa-4" id="qq-4">It does nothing on my open tabs. Why?</button></h3>
+          <div class="qa__a" id="qa-4" role="region" aria-labelledby="qq-4"><p>Tabs that were open before you installed it need one reload to load the extension. After that it works on every page you open.</p></div>
+        </div>
+        <div class="qa">
+          <h3 class="qa__q"><button type="button" aria-expanded="false" aria-controls="qa-5" id="qq-5">Does it work in iframes and Shadow&nbsp;DOM?</button></h3>
+          <div class="qa__a" id="qa-5" role="region" aria-labelledby="qq-5"><p>Yes. Elements in nested frames are picked inside their own frame, and the panel shows the frame chain to switch into; Playwright locators come wrapped in <code>frameLocator()</code>. Frames from other sites work once you allow them in Settings. In Shadow DOM, open or closed, it recommends Playwright or piercing CSS with <code>&gt;&gt;&gt;</code>, never an XPath a runner can’t push through the shadow root.</p></div>
+        </div>
+        <div class="qa">
+          <h3 class="qa__q"><button type="button" aria-expanded="false" aria-controls="qa-6" id="qq-6">How do I pick an item in a hover menu?</button></h3>
+          <div class="qa__a" id="qa-6" role="region" aria-labelledby="qq-6"><p>Hover it, then press Space or Enter. You never move the mouse to click, so the menu stays open while it’s picked.</p></div>
+        </div>
+        <div class="qa">
+          <h3 class="qa__q"><button type="button" aria-expanded="false" aria-controls="qa-7" id="qq-7">Can it check the selectors I already have?</button></h3>
+          <div class="qa__a" id="qa-7" role="region" aria-labelledby="qq-7"><p>That’s the Heal tab. Paste them one per line, or paste your test code as it is (<code>By.xpath(…)</code>, <code>@FindBy</code>, <code>page.getByRole(…)</code>, <code>cy.get(…)</code>), and press Verify All. For any that broke, Suggest fix shows the element it most likely meant and a fresh locator for it.</p></div>
+        </div>
+        <div class="qa">
+          <h3 class="qa__q"><button type="button" aria-expanded="false" aria-controls="qa-8" id="qq-8">Which browsers?</button></h3>
+          <div class="qa__a" id="qa-8" role="region" aria-labelledby="qq-8"><p>Chrome, and other Chromium browsers that install extensions from the Chrome Web Store.</p></div>
+        </div>
+      </div>
+      <div class="faq__pane" aria-hidden="true"><p class="faq__answer" id="faq-answer"></p></div>
+    </section>
+
+    <!-- ============ The ask ============ -->
+    <section class="end" aria-labelledby="end-title">
+      <h2 class="end__say" id="end-title" data-reveal>Install it, open your flakiest page, and click the element that keeps breaking.</h2>
+      <div class="end__actions" data-reveal style="--d:90ms">
+        <a class="btn btn--accent" href="https://chromewebstore.google.com/detail/xpath-forte-by-sam/aapnajplekoonekkimnljfhcilllgedc" target="_blank" rel="noopener">Add to Chrome</a>
+        <a class="link" href="#try">Try it on this page first</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="foot__what">XPath Forte, by Sam Daniel in Chennai</p>
+    <p class="foot__links">
+      <a href="https://chromewebstore.google.com/detail/xpath-forte-by-sam/aapnajplekoonekkimnljfhcilllgedc" target="_blank" rel="noopener">Chrome Web Store</a>
+      <a href="mailto:mailtosamdaniel@gmail.com">Email</a>
+    </p>
+    <p class="foot__legal">&copy; 2026 · <a href="privacy.html">Privacy</a></p>
+  </footer>
+
+  <script src="vendor/lenis.min.js" defer></script>
+  <script src="site.js" defer></script>
+</body>
+</html>
